@@ -1,9 +1,10 @@
 import mysql from 'mysql2/promise'
-
+import dotenv from 'dotenv'
+dotenv.config()
 const mySqlPool = mysql.createPool({
     host: 'localhost',
     user: "root",
-    password: 'sqlpass123',
+    password: process.env.DBPASS,
     database: 'testdb',
 })
 
