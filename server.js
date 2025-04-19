@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import mySqlPool from './config/db.js';
 import lesseeRoute from './routes/lesseeRoutes.js';
-
+import nodemailer from 'nodemailer'
 dotenv.config();
 const app = express();
 
@@ -14,7 +14,35 @@ app.get('/test', (req, res) => {
     res.status(200).send('<h1>SERVER RUNNING</h1>');
 });
 
+
+
 const PORT = process.env.PORT || 8080;
+
+
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//         user: process.env.EMMAIL, // your Gmail address
+//         pass: process.env.EMPASS     // use App Password if 2FA is enabled
+//     }
+// });
+
+
+// const mailOptions = {
+//     from: '"Your Name" <your.email@gmail.com>',
+//     to: 'juan@pointblue.ph',
+//     subject: 'Hello from Node.js',
+//     text: 'This is a test email from Node.js using Nodemailer.',
+//     html: '<b>This is a test email from <i>Node.js</i> using Nodemailer.</b>'
+// };
+
+// transporter.sendMail(mailOptions, (error, info) => {
+//     if (error) {
+//         return console.log('Error:', error);
+//     }
+//     console.log('Message sent: %s', info.messageId);
+// });
+
 
 // const TEMPLATE_DOCUMENT_ID = '1cIFFkoZFrcMGKG21ALs5SSKvf5FUcVpmdg9jdd9YqCI'; // your template
 // const TARGET_FOLDER_ID = '1ANJCKkJYyjXTZtU8G9yvz1pZNL4dYpnc'; // your folder
